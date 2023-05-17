@@ -26,9 +26,17 @@ public class CanvasUI : Singleton<CanvasUI>
         Application.Quit();
     }
 
+    public GameObject Sub;
     public void OpenGame()
     {
-        SceneManager.LoadScene("Game");
+        if (GameDataManager.Instance.playerData.time > 0)
+        {
+            SceneManager.LoadScene("Game");
+        }
+        else
+        {
+            Sub.SetActive(true);
+        }
     }
 
     // Update is called once per frame
